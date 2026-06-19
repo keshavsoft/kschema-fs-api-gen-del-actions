@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>KSchema Table Action Generator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0f172a;
+            color: #e2e8f0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        header {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .hero-command {
+            margin-top: 40px;
+            display: inline-block;
+            background: #111827;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 18px 25px;
+            color: #22c55e;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 70px 0;
+        }
+
+        h2 {
+            color: #38bdf8;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .card h3 {
+            color: #22c55e;
+            margin-bottom: 15px;
+        }
+
+        .code {
+            background: #111827;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 24px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            color: #22c55e;
+            font-size: 0.95rem;
+        }
+
+        .flow {
+            background: #111827;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 35px;
+            text-align: center;
+            color: #facc15;
+            font-family: monospace;
+            line-height: 2;
+            font-size: 1.05rem;
+        }
+
+        .commands-table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        .commands-table th,
+        .commands-table td {
+            border: 1px solid #334155;
+            padding: 16px;
+            text-align: left;
+        }
+
+        .commands-table th {
+            background: #111827;
+            color: #38bdf8;
+        }
+
+        .commands-table td {
+            background: #0f172a;
+        }
+
+        footer {
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            padding: 40px 0;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>KSchema Table Action Generator</h1>
+
+            <p>
+                Generate reusable Express.js table action boilerplate using dynamic CLI architecture,
+                JSON-driven command loading, and scalable template generation.
+            </p>
+
+            <div class="hero-command">
+                npx @keshavsoft/kschema-api-gen-actions ShowAll
+            </div>
+
+            <br />
+
+            <a href="#quick-start" class="btn">
+                Get Started
+            </a>
+
+        </div>
+
+    </header>
+
+    <section>
+
+        <div class="container">
+
+            <h2>Why KSchema?</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>⚡ Faster Development</h3>
+
+                    <p>
+                        Generate controllers, routes, validations, and folder structure instantly.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🧠 JSON Driven</h3>
+
+                    <p>
+                        Centralized metadata using actions.json for scalable architecture.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>📦 Dynamic Imports</h3>
+
+                    <p>
+                        Commands load dynamically without maintaining hardcoded maps.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🚀 Easy Scaling</h3>
+
+                    <p>
+                        Add new actions by updating only one JSON configuration entry.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="quick-start">
+
+        <div class="container">
+
+            <h2>Quick Start</h2>
+
+            <div class="code">
+                npm install -g @keshavsoft/kschema-api-gen-actions
+
+                npx @keshavsoft/kschema-api-gen-actions ShowAll
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <h2>Generated Structure</h2>
+
+            <div class="code">
+                project/
+                ├── end-points.js
+                │
+                ├── ShowAll/
+                │ ├── controller.js
+                │ ├── dal.js
+                │ ├── route.js
+                │ └── validation.js
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <h2>Architecture Flow</h2>
+
+            <div class="flow">
+                CLI
+                ↓
+                parseInput.js
+                ↓
+                resolveCommand.js
+                ↓
+                loadCommand.js
+                ↓
+                actions.json
+                ↓
+                dynamic import()
+                ↓
+                tasks/actions/
+                ↓
+                template generation
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <h2>Example actions.json</h2>
+
+            <div class="code">
+                [
+                {
+                "cmd": "showAll",
+                "file": "showAll",
+                "exportFile": "ShowAll",
+                "group": "GetMethods",
+                "description": "Generate ShowAll GET action"
+                }
+                ]
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <h2>Supported Commands</h2>
+
+            <table class="commands-table">
+
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>ShowAll</td>
+                        <td>GET</td>
+                        <td>Generate ShowAll table action</td>
+                    </tr>
+
+                    <tr>
+                        <td>Insert</td>
+                        <td>POST</td>
+                        <td>Generate Insert table action</td>
+                    </tr>
+
+                    <tr>
+                        <td>Distinct</td>
+                        <td>GET</td>
+                        <td>Generate Distinct table action</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <h2>Why v13 Architecture Matters</h2>
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <h3>Before v13</h3>
+
+                    <p>
+                        ❌ Manual imports<br />
+                        ❌ Hardcoded maps<br />
+                        ❌ Duplicate export files<br />
+                        ❌ Multiple edit points<br />
+                        ❌ Higher maintenance
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>After v13</h3>
+
+                    <p>
+                        ✅ Dynamic imports<br />
+                        ✅ Single source of truth<br />
+                        ✅ Cleaner architecture<br />
+                        ✅ Easier scaling<br />
+                        ✅ Lower maintenance
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <h2>Adding New Actions</h2>
+
+            <div class="code">
+                1. Create action file
+
+                tasks/actions/update.js
+
+                2. Add config entry
+
+                {
+                "cmd": "update",
+                "file": "update",
+                "exportFile": "Update",
+                "group": "PostMethods",
+                "description": "Generate Update POST action"
+                }
+
+                3. Done
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                Built with ❤️ by KeshavSoft
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
