@@ -3,5 +3,6 @@ import { deleteAction } from "../../../index.js";
 
 deleteAction({
     toPath: process.cwd(),
-    showLog: true
+    showLog: true,
+    inGenerateRest: true
 });
