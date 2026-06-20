@@ -1,6 +1,6 @@
 {
   "name": "kschema-fs-api-gen-del-actions",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "start from end points js, generate post methods",
   "keywords": [
     "cli",
