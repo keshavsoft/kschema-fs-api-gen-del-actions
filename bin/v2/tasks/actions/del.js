@@ -1,7 +1,7 @@
 import path from "path";
 
 import generateRest from "kschema-fs-api-gen-rest";
-import fixEndpointsJs from "express-fix-endpoints-get-js";
+import fixEndpointsJs from "express-fix-endpoints-del-js";
 
 import { locateSource } from "./Del/steps/locateSource.js";
 import { locateDestination } from "./Del/steps/locateDestination.js";

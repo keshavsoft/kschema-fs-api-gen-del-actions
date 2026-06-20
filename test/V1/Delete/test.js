@@ -1,7 +1,7 @@
 import path from "path";
-import { find } from "../../../index.js";
+import { deleteAction } from "../../../index.js";
 
-find({
+deleteAction({
     toPath: process.cwd(),
     showLog: true
 });
