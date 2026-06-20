@@ -1,0 +1,26 @@
+    {
+        "cmd": "WithMail",
+        "file": "withMail",
+        "exportFile": "WithMail",
+        "group": "PostMethods",
+        "description": "Generate WithMail POST action",
+        "endPointsJs": {
+            "importLines": {
+                "toInsertLine": "import funcFromWithMail from './WithMail/controller.js';",
+                "duplicationCheck": "from './WithMail/controller.js'",
+                "insertAfter": [
+                    "import funcFrom",
+                    "import express"
+                ]
+            },
+            "useLines": {
+                "toInsertLine1": "router.get('/WithMail', (req, res) => funcFromWithMail({ res, inTablePath: tablePath }));",
+                "toInsertLine": "router.post('/WithMail', express.json(), (req, res) => funcFromWithMail({ req, res, inTablePath: tablePath, inConfigPath: configPath }));",
+                "duplicationCheck": "router.use('/WithMail'",
+                "insertAfter": [
+                    "router.",
+                    "const router = "
+                ]
+            }
+        }
+    }
