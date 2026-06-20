@@ -1,6 +1,6 @@
 import { JSONFilePreset } from 'lowdb/node'
 
-const startFunc = async ({ inTablePath }) => {
+const startFunc = async ({ inTablePath, inData }) => {
     const db = await JSONFilePreset(inTablePath, []);
 
     await db.read();

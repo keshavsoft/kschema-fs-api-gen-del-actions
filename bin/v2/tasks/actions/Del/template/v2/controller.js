@@ -3,8 +3,10 @@ import { ConflictError, StorageError } from "./errors.js";
 
 const getFunc = async ({ req, res, inTablePath }) => {
     try {
-        const pk = "";
+        const requestPk = req.params.pk;
+
         const fromService = await Service({
+            inPk: requestPk,
             inTablePath
         });
 

@@ -3,20 +3,17 @@ import path from "path";
 import generateRest from "kschema-fs-api-gen-rest";
 import fixEndpointsJs from "express-fix-endpoints-get-js";
 
-import { locateSource } from "./Find/steps/locateSource.js";
-import { locateDestination } from "./Find/steps/locateDestination.js";
+import { locateSource } from "./Del/steps/locateSource.js";
+import { locateDestination } from "./Del/steps/locateDestination.js";
 import { createFolder } from "../../core/createFolder.js";
 
-import { announce } from "./Find/steps/announce.js";
+import { announce } from "./Del/steps/announce.js";
 
-import resolveFolderName from "./Find/steps/resolveFolderName.js";
-import actions from "./Find/actions.json" with { type: "json" };
+import resolveFolderName from "./Del/steps/resolveFolderName.js";
 
 const startFunc = async ({ cmd = "", toPath, isAnnounce = true, checkBeforeCreate = true,
     inTargetPath, inGenerateRest = false, inFolderName
 }) => {
-
-    const matched = actions;
 
     const localToPath = toPath;
 
