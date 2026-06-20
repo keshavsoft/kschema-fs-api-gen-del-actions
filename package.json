@@ -1,6 +1,6 @@
 {
   "name": "kschema-fs-api-gen-del-actions",
-  "version": "1.2.3",
+  "version": "1.3.2",
   "description": "start from end points js, generate post methods",
   "keywords": [
     "cli",
@@ -10,7 +10,7 @@
     "project-generator"
   ],
   "dependencies": {
-    "kschema-fs-api-gen-rest": "^1.5.3",
+    "kschema-fs-api-gen-rest": "^1.7.2",
     "express-fix-endpoints-del-js": "^1.2.2"
   },
   "type": "module",
